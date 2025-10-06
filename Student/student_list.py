@@ -46,7 +46,7 @@ class StudentList:
 
 
     # ---------- Add Student Anywhere ----------
-    def add_on(self, student, position):
+    def add_student_at(self, student, position):
         """
         Adds a student at a specific position (not necessarily at the end).
         """
