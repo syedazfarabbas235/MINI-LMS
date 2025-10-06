@@ -31,7 +31,7 @@ def main():
         print("Bilal joined and was placed at index 2 \n")
         s5 = Student("Bilal","Male", 21, "bilal@gmail.com", "Faisalabad",
                      "5", "BSCS", 2025, 1, "Paid")
-        DCS.add_on(s5, 2)
+        DCS.add_student_at(s5, 2)
 
         DCS.display()
 
@@ -62,3 +62,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
