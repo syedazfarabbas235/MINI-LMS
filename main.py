@@ -4,9 +4,7 @@ from Student_list import StudentList
 def main():
     try:
         DCS= StudentList()
-        # Create StudentList with initial capacity 3
-        DCS= StudentList(capacity=3)
-
+       
         # Create Student objects
         s1 = Student("Ali","Male", 20, "ali@gmail.com", "Lahore",
                      "1", "BSCS", 2025, 1, "Paid")
