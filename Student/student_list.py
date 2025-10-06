@@ -7,10 +7,10 @@ class StudentList:
     - Implements custom add, insert, search, update, and remove operations.
     """
 
-    def __init__(self, capacity=3):
-        self._capacity = capacity                 # Maximum number of students allowed initially
-        self._students = [None] * self._capacity  # Preallocate space with None
+    def __init__(self):               
+        self._students = [None] *3  # Preallocate space with None
         self._size = 0                            # Current number of students in list
+
 
     # ---------- Display ----------
     def display(self):
@@ -27,20 +27,19 @@ class StudentList:
 
 
     # ---------- Expand List ----------
-    def increase_capacity(self, extra_slots=2):
+    def _increase_capacity(self):
         """
-        Expands the current capacity of the student list by given extra slots.
+        Doubles the list size automatically when it's full.
         """
-        self._students += [None] * extra_slots
-        self._capacity += extra_slots
+        self._students += [None] * len(self._students)
 
     # ---------- Add Student ----------
     def add_student(self, student):
         """
         Adds a new student to the end of the list.
         """
-        if self._size >= self._capacity:
-            self.increase_capacity()
+        if self._size >= len(self._students):
+            self._increase_capacity()
 
         self._students[self._size] = student
         self._size += 1
@@ -53,8 +52,8 @@ class StudentList:
         """
         if not (0 <= position <= self._size):
             raise IndexError("Invalid position to add student.")
-        if self._size >= self._capacity:
-            self.increase_capacity()
+        if self._size >= len(self._students):
+            self._increase_capacity()
 
         # Shift students to the right
         for i in range(self._size, position, -1):
