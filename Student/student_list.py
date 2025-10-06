@@ -27,7 +27,7 @@ class StudentList:
 
 
     # ---------- Expand List ----------
-    def expand_list(self, extra_slots=2):
+    def increase_capacity(self, extra_slots=2):
         """
         Expands the current capacity of the student list by given extra slots.
         """
@@ -40,7 +40,7 @@ class StudentList:
         Adds a new student to the end of the list.
         """
         if self._size >= self._capacity:
-            self.expand_list()
+            self.increase_capacity()
 
         self._students[self._size] = student
         self._size += 1
@@ -54,7 +54,7 @@ class StudentList:
         if not (0 <= position <= self._size):
             raise IndexError("Invalid position to add student.")
         if self._size >= self._capacity:
-            self.expand_list()
+            self.increase_capacity()
 
         # Shift students to the right
         for i in range(self._size, position, -1):
